@@ -22,12 +22,12 @@ const Connections = () => {
   }, []);
 
   if(!connections) return;
-  if(connections.length === 0) return <div>Zero connections found</div>
+  if(connections.length === 0) return <div className="flex justify-center my-10">Zero connections found</div>
   return (
     <div className="text-center my-10">
         <h1 className="font-bold text-white text-3xl">Connections</h1>
         {connections.map((connection) => {
-            const {_id, firstName, lastName, gender, age, photourl, about} = connection;
+            const {_id, firstName, lastName, gender, age, photourl} = connection;
             return (
                 <div key={_id} className="flex m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto">
                     <div>
@@ -36,7 +36,7 @@ const Connections = () => {
                     <div className="text-left mx-4">
                         <h2 className="font-bold text-xl">{firstName + " " + lastName}</h2>
                         {age && gender && <p>{age + ", " + gender}</p>}
-                        <p>{about}</p>
+                        {/* {about && <p>{about}</p>} */}
                     </div>
                 </div>
             )
